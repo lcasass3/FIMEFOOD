@@ -1,8 +1,45 @@
-// Variable overrides first
-// $primary: #900;
-// $enable-shadows: true;
-// $prefix: "mo-";
-// $body-bg: red;
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,400&display=swap');
+//Se reescriben los colores a utilizar
+$primary: rgba(72, 195, 128, 0.6);
+$secondary: rgba(72, 195, 128, 0.3);
+$tertiary: rgba(244, 244, 244, 1);
+
+$font-green: rgba(47, 146, 92, 1);
+
+//Color del cuerpo
+$body-bg: $tertiary;
+
+//Propiedades de la fuente
+$font-family-sans-serif: 'Inter Tight',
+sans-serif;
+$font-weight-bolder: 800;
+
+//Tamaños de fuente personalizados
+$font-size-base: 1rem;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+$font-sizes: (
+    1: $h1-font-size,
+    2: $h2-font-size,
+    3: $h3-font-size,
+    4: $h4-font-size,
+    5: $h5-font-size,
+    6: $h6-font-size
+);
+
+$custom-sizes: (
+    48: 48px,
+    60: 60px,
+    64: 64px,
+    86: 86px
+);
+$font-sizes: map-merge($font-sizes, $custom-sizes);
 
 // Then import Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
