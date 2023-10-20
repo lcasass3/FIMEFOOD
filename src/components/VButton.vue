@@ -14,6 +14,7 @@ defineProps<{
       'btn-danger': type === 'danger',
       'btn-outline-primary': type === 'outline'
     }"
+    :style="{}"
   >
     <slot></slot>
   </button>

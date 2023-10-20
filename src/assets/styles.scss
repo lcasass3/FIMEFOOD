@@ -4,8 +4,6 @@ $primary: rgba(72, 195, 128, 0.6);
 $secondary: rgba(72, 195, 128, 0.3);
 $tertiary: rgba(244, 244, 244, 1);
 
-$font-green: rgba(47, 146, 92, 1);
-
 //Color del cuerpo
 $body-bg: $tertiary;
 
@@ -14,6 +12,23 @@ $font-family-sans-serif: 'Inter Tight',
 sans-serif;
 $font-weight-bolder: 800;
 
+//Agregar colores al tema
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": #198754,
+    "info": #0dcaf0,
+    "warning":  #ffc107,
+    "danger": #dc3545,
+    "light": #f8f9fa,
+    "dark": #212529
+);
+
+$custom-colors: (
+    "hardGreen": rgba(47, 146, 92, 1),
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors );
 //Tamaños de fuente personalizados
 $font-size-base: 1rem;
 
@@ -41,5 +56,26 @@ $custom-sizes: (
 );
 $font-sizes: map-merge($font-sizes, $custom-sizes);
 
+//Propiedades de botones
+$btn-border-radius: 10px;
+$btn-border-width: 0px;
+
 // Then import Bootstrap
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "/node_modules/bootstrap/scss/bootstrap.scss";
+
+//import utilities
+@import "/node_modules/bootstrap/scss/utilities";
+
+//custom viewport size
+$utilities: map-merge($utilities,
+        ("width": map-merge(map-get($utilities, "viewport-height"),
+                (values: map-merge(map-get(map-get($utilities, "viewport-height"), "values"),
+                        (90: 90%),
+                    ),
+                ),
+            ),
+        ));
+
+//custom size
+
+@import "/node_modules/bootstrap/scss/utilities/api";
