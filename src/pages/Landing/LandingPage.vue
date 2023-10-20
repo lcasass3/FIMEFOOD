@@ -12,6 +12,7 @@ import AboutButton from './components/AboutButton.vue'
           <div class="position-relative">
             <h1 class="fw-bolder fs-64 text-hardGreen">TU COMIDA A SOLO</h1>
             <h1 class="fw-bolder fs-60">UNOS PASOS</h1>
+            <hr class="border border-1 border-primary opacity-100 my-1 w-25" />
             <p class="fs-6">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore porro atque
               officia, labore repellat perspiciatis rerum similique officiis ipsam dicta saepe
