@@ -4,17 +4,15 @@ import router from '@/router'
 </script>
 
 <template>
-  <nav class="navbar bg-body-tertiary shadow-sm px-5 vw-100">
-    <div class="container-fluid">
-      <a class="navbar-brand fw-bolder text-hardGreen fs-3" @click="router.push({ path: '/' })"
-        >FIMEFOOD</a
+  <nav class="h-full w-full bg-white shadow flex items-center px-12 py-3 justify-between">
+    <button class="font-bold text-2xl text-font" @click="router.push({ path: '/' })">
+      FIMEFOOD
+    </button>
+    <form class="flex">
+      <VButton type="outline" class="mr-4" @click="router.push({ path: '/login' })"
+        >Iniciar Sesion</VButton
       >
-      <form class="d-flex">
-        <VButton type="outline" @click="router.push({ path: '/login' })">Iniciar Sesión</VButton>
-        <VButton type="primary" class="ms-3" @click="router.push({ path: '/sign-up' })"
-          >Crear cuenta</VButton
-        >
-      </form>
-    </div>
+      <VButton type="primary" @click="router.push({ path: '/sign-up' })">Crear cuenta</VButton>
+    </form>
   </nav>
 </template>

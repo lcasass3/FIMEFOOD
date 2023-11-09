@@ -4,29 +4,26 @@ import AboutButton from './components/AboutButton.vue'
 </script>
 
 <template>
-  <NavBar />
-  <body class="overflow-hidden">
-    <main class="container vh-90 mx-5 px-1 position-absolute">
-      <div class="row vh-90 position-relative align-items-center">
-        <div class="col position-relative flex">
-          <div class="position-relative">
-            <h1 class="fw-bolder fs-64 text-hardGreen">TU COMIDA A SOLO</h1>
-            <h1 class="fw-bolder fs-60">UNOS PASOS</h1>
-            <hr class="border border-1 border-primary opacity-100 my-1 w-25" />
-            <p class="fs-6">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore porro atque
-              officia, labore repellat perspiciatis rerum similique officiis ipsam dicta saepe
-              explicabo in eaque reprehenderit distinctio praesentium necessitatibus. Ab, debitis!
-            </p>
-            <AboutButton />
-          </div>
-        </div>
+  <body class="h-screen">
+    <header class="h-[10vh]">
+      <NavBar />
+    </header>
 
-        <div class="col position-relative">
-          <div class="position-relative">
-            <img src="@/assets/images/gatoFime.jpg" alt="Imagen de gato" class="img-fluid" />
-          </div>
+    <main class="h-[90vh] grid grid-cols-2 px-12">
+      <div class="h-full flex items-center">
+        <div class="ml-8">
+          <h1 class="text-6xl font-semibold text-font">TU COMIDA A SOLO</h1>
+          <h1 class="text-6xl font-semibold">UNOS PASOS</h1>
+          <hr class="border border-secondary my-3 w-1/4" />
+          <p class="text-sm w-2/3">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil ipsa beatae dignissimos
+            deserunt, est tempore eaque veniam delectus facilis animi hic natus adipisci aperiam
+            laboriosam saepe earum perspiciatis minus dolorum!
+          </p>
         </div>
+      </div>
+      <div class="flex items-center justify-end h-full">
+        <img src="@/assets/images/gatoFime.jpg" alt="Foto de gato" class="h-3/4" />
       </div>
     </main>
   </body>

@@ -1,20 +1,17 @@
 <script setup lang="ts">
 defineProps<{
-  type: 'primary' | 'secondary' | 'danger' | 'outline'
+  type: 'primary' | 'outline'
 }>()
 </script>
 
 <template>
   <button
-    class="btn"
     type="button"
     :class="{
-      'btn-primary': type === 'primary',
-      'btn-secondary': type === 'secondary',
-      'btn-danger': type === 'danger',
-      'btn-outline-primary': type === 'outline'
+      'bg-secondary px-3 py-2 rounded-xl text-sm shadow': type === 'primary',
+      'bg-inherit text-sm px-3 py-2 rounded-xl hover:border hover:border-secondary':
+        type === 'outline'
     }"
-    :style="{}"
   >
     <slot></slot>
   </button>
