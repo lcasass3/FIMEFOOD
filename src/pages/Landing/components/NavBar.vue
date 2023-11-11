@@ -8,11 +8,11 @@ import router from '@/router'
     <button class="font-bold text-2xl text-font" @click="router.push({ path: '/' })">
       FIMEFOOD
     </button>
-    <form class="flex">
+    <div class="flex">
       <VButton type="outline" class="mr-4" @click="router.push({ path: '/login' })"
         >Iniciar Sesion</VButton
       >
       <VButton type="primary" @click="router.push({ path: '/sign-up' })">Crear cuenta</VButton>
-    </form>
+    </div>
   </nav>
 </template>

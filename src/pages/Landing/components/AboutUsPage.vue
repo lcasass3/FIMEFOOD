@@ -6,46 +6,41 @@ import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
 import InstagramIcon from '@/assets/icons/InstagramIcon.vue'
 </script>
 
-<template>
-  <body class="overflow-hidden vh-100">
+<template class="h-screen w-screen">
+  <header class="h-[10vh]">
     <NavBar />
-    <main class="container mx-5 px-1 vh-80 position-absolute">
-      <div class="row h-100 align-items-center">
-        <div class="col d-flex justify-content-start">
-          <div class="w-75 ms-4">
-            <h1 class="fw-bold fs-48 w-75">SOBRE NOSOTROS</h1>
-            <hr class="border border-1 border-primary opacity-100 my-1 w-25" />
-            <p class="fs-6 w-100">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore porro atque
-              officia, labore repellat perspiciatis rerum similique officiis ipsam dicta saepe
-              explicabo in eaque reprehenderit distinctio praesentium necessitatibus. Ab, debitis!
-            </p>
-          </div>
-        </div>
+  </header>
 
-        <div class="col d-flex justify-content-center">
-          <div class="h-75 w-75">
-            <!-- <a href="https://storyset.com/people">People illustrations by Storyset</a> -->
-            <SelectingTeamIcon />
-          </div>
-        </div>
+  <main class="h-[80vh] grid grid-cols-2 px-12">
+    <div class="h-full flex items-center">
+      <div class="w-2/3">
+        <h1 class="text-5xl font-semibold">SOBRE NOSOTROS</h1>
+        <hr class="border border-secondary my-3 w-1/4" />
+        <p class="text-sm">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe voluptatibus doloribus
+          blanditiis est earum necessitatibus expedita praesentium sequi magni tempore, fuga, labore
+          possimus quidem aliquam officiis quo fugiat esse unde!
+        </p>
       </div>
-    </main>
-  </body>
-  <footer
-    class="container-fluid position-absolute bottom-0 vh-10 p-2 d-flex align-items-center mx-5 justify-content-evenly fs-0"
-  >
-    <div>
-      <EnvelopeIcon class="me-4" style="height: 35px" />
-      <a href="mailto:">exampleFIMEFOOD@email.com</a>
     </div>
-    <div>
-      <FacebookIcon class="me-4" />
-      <a href="http://">FIMEFOOD</a>
+    <div class="h-full flex items-center justify-center">
+      <SelectingTeamIcon class="w-4/5" />
     </div>
-    <div>
-      <InstagramIcon class="me-4" />
-      <a href="http://">FIME_FOOD</a>
+  </main>
+  <footer class="h-[10vh] w-full">
+    <div class="flex items-end justify-evenly absolute inset-x-0 bottom-2">
+      <div class="flex items-center text-sm">
+        <EnvelopeIcon class="w-6 h-6 mr-4" />
+        <a href="">example@email.com</a>
+      </div>
+      <div class="flex items-center text-sm">
+        <FacebookIcon class="w-6 h-6 mr-4" />
+        <a href="">FIMEFOOD</a>
+      </div>
+      <div class="flex items-center text-sm">
+        <InstagramIcon class="w-6 h-6 mr-4" />
+        <a href="">FIME_FOOD</a>
+      </div>
     </div>
   </footer>
 </template>
