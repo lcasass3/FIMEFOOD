@@ -13,7 +13,7 @@ const isSeller = ref(false)
     <dialog
       v-if="!isCostumer && !isSeller"
       open
-      class="bg-white w-1/3 rounded-3xl p-12 flex items-center justify-center max-h-fit max-w-fit shadow-md"
+      class="bg-white w-1/3 rounded-3xl p-12 flex items-center justify-center max-h-fit max-w-md shadow-md"
     >
       <div>
         <h1 class="text-2xl font-medium mb-8">Deseo crear una cuenta como:</h1>
