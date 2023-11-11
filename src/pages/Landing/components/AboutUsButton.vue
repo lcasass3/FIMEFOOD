@@ -6,11 +6,10 @@ import router from '@/router'
 <template>
   <button
     type="button"
-    class="btn btn-secondary"
-    style="height: 35px"
+    class="flex bg-softGreen px-4 py-1 rounded-xl shadow w-60 justify-between text-sm items-center"
     @click="router.push({ path: '/about-us' })"
   >
-    <p class="d-inline-flex me-5">Conoce más</p>
-    <ArrowLongRightIcon style="height: 10px; width: 20px; weight: 10px" />
+    Conoce más
+    <ArrowLongRightIcon class="w-6" />
   </button>
 </template>
