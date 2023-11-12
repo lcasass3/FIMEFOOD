@@ -1,0 +1,52 @@
+<script setup lang="ts">
+import BoxContainerComponent from '@/pages/SignUp/components/BoxContainerComponent.vue'
+import VButton from '@/components/VButton.vue'
+
+defineEmits<{
+  (e: 'stageMovement', stage: number): void
+}>()
+</script>
+
+<template>
+  <BoxContainerComponent title="Crea una cuenta">
+    <form class="w-full">
+      <input
+        type="text"
+        minlength="5"
+        maxlength="45"
+        placeholder="Apodo de vendedor"
+        class="bg-neutral-100 border border-gray-600 rounded-md p-2 text-xs w-full my-1"
+      />
+      <input
+        type="text"
+        placeholder="Tipos de productos a vender"
+        class="bg-neutral-100 border border-gray-600 rounded-md p-2 text-xs w-full my-1"
+      />
+      <input
+        type="tel"
+        minlength="10"
+        maxlength="10"
+        placeholder="Método de contacto (celular)"
+        class="bg-neutral-100 border border-gray-600 rounded-md p-2 text-xs w-full my-1"
+      />
+
+      <p class="text-xs mt-8 text-center">
+        Si cuentas con algunas imágenes de referencia sobre tus productos o punto de venta,
+        agrégalas:
+      </p>
+
+      <input
+        type="file"
+        multiple
+        accept="image/png, image/jpeg"
+        class="text-xs flex items-center justify-center mt-6 w-full"
+      />
+    </form>
+
+    <template #button>
+      <VButton type="primary" class="w-full mt-6" @click="$emit('stageMovement', 2)"
+        >Siguiente</VButton
+      >
+    </template>
+  </BoxContainerComponent>
+</template>

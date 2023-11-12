@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import VButton from '@/components/VButton.vue'
-
 const props = defineProps<{
   title: string
-  buttonText: string
 }>()
 </script>
 
@@ -13,6 +10,6 @@ const props = defineProps<{
     <form class="w-full">
       <slot></slot>
     </form>
-    <VButton type="primary" class="w-full mt-6">{{ props.buttonText }}</VButton>
+    <slot name="button"></slot>
   </dialog>
 </template>

@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import BoxContainerComponent from '../components/BoxContainerComponent.vue'
+import BoxContainerComponent from '@/pages/SignUp/components/BoxContainerComponent.vue'
 import VButton from '@/components/VButton.vue'
+
+defineEmits<{
+  (e: 'stageMovement', stage: number): void
+}>()
 </script>
 
 <template>
-  <BoxContainerComponent title="Crea una cuenta" button-text="Crear cuenta">
+  <BoxContainerComponent title="Crea una cuenta">
     <form class="w-full">
       <input
         type="text"
@@ -36,7 +40,9 @@ import VButton from '@/components/VButton.vue'
     </form>
 
     <template #button>
-      <VButton type="primary" class="w-full mt-6">Crear cuenta</VButton>
+      <VButton type="primary" class="w-full mt-6" @click="$emit('stageMovement', 1)"
+        >Siguiente</VButton
+      >
     </template>
   </BoxContainerComponent>
 </template>
