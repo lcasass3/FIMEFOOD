@@ -1,15 +1,26 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import router from '@/router'
 import VButton from '@/components/VButton.vue'
 import CostumerSignUpPage from './costumer/CostumerSignUpPage.vue'
 import SellerSignUpPage from './seller/SellerSignUpPage.vue'
+import VGoBackComponent from '@/components/VGoBackComponent.vue'
 
 const isCostumer = ref(false)
 const isSeller = ref(false)
+
+function costumerMovementHandler(activePage: boolean) {
+  isCostumer.value = activePage
+}
+
+function sellerMovementHandler(activePage: boolean) {
+  isSeller.value = activePage
+}
 </script>
 
 <template>
   <main class="flex items-center justify-center h-screen w-screen">
+    <VGoBackComponent v-if="!isCostumer && !isSeller" @click="router.push({ path: '/' })" />
     <dialog
       v-if="!isCostumer && !isSeller"
       open
@@ -24,7 +35,7 @@ const isSeller = ref(false)
       </div>
     </dialog>
 
-    <CostumerSignUpPage v-if="isCostumer" />
-    <SellerSignUpPage v-if="isSeller" />
+    <CostumerSignUpPage v-if="isCostumer" @page-movement="costumerMovementHandler" />
+    <SellerSignUpPage v-if="isSeller" @page-movement="sellerMovementHandler" />
   </main>
 </template>

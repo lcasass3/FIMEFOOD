@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import VBoxContainerComponent from '@/components/VBoxContainerComponent.vue'
 import VButton from '@/components/VButton.vue'
+import { ArrowLeftIcon } from '@heroicons/vue/24/outline'
+
+defineEmits<{
+  (e: 'pageMovement', activePage: boolean): void
+}>()
 </script>
 
 <template>
+  <button class="absolute top-5 left-5" @click="$emit('pageMovement', false)">
+    <ArrowLeftIcon class="w-8" />
+  </button>
+
   <VBoxContainerComponent title="Crea una cuenta" button-text="Crear cuenta">
     <form class="w-full">
       <input

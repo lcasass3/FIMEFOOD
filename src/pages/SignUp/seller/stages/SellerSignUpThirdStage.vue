@@ -2,6 +2,7 @@
 import router from '@/router'
 import VBoxContainerComponent from '@/components/VBoxContainerComponent.vue'
 import VButton from '@/components/VButton.vue'
+import VGoBackComponent from '@/components/VGoBackComponent.vue'
 
 defineEmits<{
   (e: 'stageMovement', stage: number): void
@@ -9,6 +10,8 @@ defineEmits<{
 </script>
 
 <template>
+  <VGoBackComponent @click="$emit('stageMovement', 1)" />
+
   <VBoxContainerComponent title="Crea una cuenta">
     <form class="w-full">
       <p class="text-xs mt-8">
