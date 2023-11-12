@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import NavBar from './components/NavBar.vue'
+import VNavBar from '@/components/VNavBar.vue'
 import AboutUsButton from './components/AboutUsButton.vue'
 </script>
 
 <template class="h-screen">
   <header class="h-[10vh]">
-    <NavBar />
+    <VNavBar />
   </header>
 
   <main class="h-[90vh] grid grid-cols-2 px-12">
