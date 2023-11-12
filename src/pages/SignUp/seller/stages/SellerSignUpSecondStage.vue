@@ -36,10 +36,10 @@ defineEmits<{
       </p>
 
       <input
+        class="block mt-4 w-full mb-4 text-xs text-gray-900 border border-gray-300 rounded-e-lg cursor-pointer bg-gray-50"
+        id="studiesCertificate"
         type="file"
-        multiple
-        accept="image/png, image/jpeg"
-        class="text-xs flex items-center justify-center mt-6 w-full"
+        accept=".pdf"
       />
     </form>
 

@@ -11,7 +11,7 @@ defineEmits<{
 <template>
   <BoxContainerComponent title="Crea una cuenta">
     <form class="w-full">
-      <p class="text-xs mt-8 text-center">
+      <p class="text-xs mt-8">
         Por último, para garantizar la seguridad en las ventas dentro de nuestro sistema necesitamos
         algunos documentos personales en formato PDF:
       </p>
@@ -49,8 +49,13 @@ defineEmits<{
         />
       </div>
 
-      <div class="inline-flex items-center">
-        <input type="checkbox" id="terms" class="rounded-full mr-4" />
+      <div class="flex items-center">
+        <input
+          type="checkbox"
+          required
+          id="terms"
+          class="shrink-0 mr-4 border-gray-200 rounded-full text-primary focus:ring-0"
+        />
         <label for="terms" class="text-xs"
           ><small
             >Acepto los términos y condiciones para ser vendedor en la página de FIMEFOOD</small
