@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBar from './NavBar.vue'
+import VNavBar from '@/components/VNavBar.vue'
 import SelectingTeamIcon from '@/assets/icons/SelectingTeamIcon.vue'
 import { EnvelopeIcon } from '@heroicons/vue/24/outline'
 import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
@@ -8,7 +8,7 @@ import InstagramIcon from '@/assets/icons/InstagramIcon.vue'
 
 <template class="h-screen w-screen">
   <header class="h-[10vh]">
-    <NavBar />
+    <VNavBar />
   </header>
 
   <main class="h-[80vh] grid grid-cols-2 px-12">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BoxContainerComponent from '@/pages/SignUp/components/BoxContainerComponent.vue'
+import VBoxContainerComponent from '@/components/VBoxContainerComponent.vue'
 import VButton from '@/components/VButton.vue'
 
 defineEmits<{
@@ -8,7 +8,7 @@ defineEmits<{
 </script>
 
 <template>
-  <BoxContainerComponent title="Crea una cuenta">
+  <VBoxContainerComponent title="Crea una cuenta">
     <form class="w-full">
       <input
         type="text"
@@ -48,5 +48,5 @@ defineEmits<{
         >Siguiente</VButton
       >
     </template>
-  </BoxContainerComponent>
+  </VBoxContainerComponent>
 </template>

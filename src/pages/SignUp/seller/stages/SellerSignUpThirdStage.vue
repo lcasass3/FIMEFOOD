@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import router from '@/router'
-import BoxContainerComponent from '@/pages/SignUp/components/BoxContainerComponent.vue'
+import VBoxContainerComponent from '@/components/VBoxContainerComponent.vue'
 import VButton from '@/components/VButton.vue'
 
 defineEmits<{
@@ -9,7 +9,7 @@ defineEmits<{
 </script>
 
 <template>
-  <BoxContainerComponent title="Crea una cuenta">
+  <VBoxContainerComponent title="Crea una cuenta">
     <form class="w-full">
       <p class="text-xs mt-8">
         Por último, para garantizar la seguridad en las ventas dentro de nuestro sistema necesitamos
@@ -69,5 +69,5 @@ defineEmits<{
         >Siguiente</VButton
       >
     </template>
-  </BoxContainerComponent>
+  </VBoxContainerComponent>
 </template>

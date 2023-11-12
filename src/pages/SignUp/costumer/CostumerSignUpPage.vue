@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import BoxContainerComponent from '../components/BoxContainerComponent.vue'
+import VBoxContainerComponent from '@/components/VBoxContainerComponent.vue'
 import VButton from '@/components/VButton.vue'
 </script>
 
 <template>
-  <BoxContainerComponent title="Crea una cuenta" button-text="Crear cuenta">
+  <VBoxContainerComponent title="Crea una cuenta" button-text="Crear cuenta">
     <form class="w-full">
       <input
         type="text"
@@ -38,5 +38,5 @@ import VButton from '@/components/VButton.vue'
     <template #button>
       <VButton type="primary" class="w-full mt-6">Crear cuenta</VButton>
     </template>
-  </BoxContainerComponent>
+  </VBoxContainerComponent>
 </template>
