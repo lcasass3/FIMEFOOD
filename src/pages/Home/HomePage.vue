@@ -1,6 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import CustomerHomePage from './costumer/CustomerHomePage.vue'
+</script>
 <template>
-  <div>
-    <h1>Home</h1>
-  </div>
+  <CustomerHomePage />
 </template>

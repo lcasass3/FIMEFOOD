@@ -9,9 +9,9 @@ const router = createRouter({
       component: () => import('../pages/Landing/LandingPage.vue')
     },
     {
-      path: '/home',
-      name: 'home',
-      component: () => import('../pages/Home/HomePage.vue')
+      path: '/about-us',
+      name: 'about-us',
+      component: () => import('../pages/Landing/components/AboutUsPage.vue')
     },
     {
       path: '/login',
@@ -24,10 +24,10 @@ const router = createRouter({
       component: () => import('../pages/SignUp/SelectAccType.vue')
     },
     {
-      path: '/about-us',
-      name: 'about-us',
-      component: () => import('../pages/Landing/components/AboutUsPage.vue')
-    }
+      path: '/home',
+      name: 'home',
+      component: () => import('../pages/Home/HomePage.vue')
+    },
   ]
 })
 
