@@ -5,6 +5,22 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Poppins', sans-serif;
     background-color: rgba(244, 244, 244, 1);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e2e2e2;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

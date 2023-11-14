@@ -11,6 +11,9 @@ export default {
         secondary: 'rgba(72, 195, 128, 0.6)',
         font: 'rgba(47, 146, 92, 1)',
         softGreen: 'rgba(72, 195, 128, 0.3)'
+      },
+      fontFamily: {
+        'sans': ['Poppins', 'sans-serif'],
       }
     },
   },

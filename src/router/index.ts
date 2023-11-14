@@ -24,10 +24,17 @@ const router = createRouter({
       component: () => import('../pages/SignUp/SelectAccType.vue')
     },
     {
-      path: '/home',
-      name: 'home',
-      component: () => import('../pages/Home/HomePage.vue')
+      path: '/app',
+      name: 'InAppLayout',
+      children: [
+      {
+        path: '/home',
+        name: 'home',
+        component: () => import('../pages/Home/HomePage.vue')
+      }],
+      component: () => import('@/layouts/InAppLayout.vue')
     },
+    
   ]
 })
 
