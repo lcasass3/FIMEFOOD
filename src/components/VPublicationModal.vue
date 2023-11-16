@@ -6,7 +6,7 @@ const props = defineProps<{
   isOpen: boolean
 }>()
 
-const emit = defineEmits<{
+defineEmits<{
   (e: 'successEvent'): void
   (e: 'closeModal'): void
 }>()
