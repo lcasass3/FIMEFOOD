@@ -18,17 +18,6 @@ function closeModal() {
     <div class="h-[90%] w-full flex flex-wrap overflow-auto">
       <VPublicationListItem class="mb-8 mx-4" @click="openModal" />
       <VPublicationModal :is-open="isOpen" @close-modal="closeModal" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
-      <VPublicationListItem class="mb-8 mx-4" />
     </div>
   </main>
 </template>
