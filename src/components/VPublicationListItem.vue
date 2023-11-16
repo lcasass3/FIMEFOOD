@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
   <div
     class="bg-white shadow-md border border-black p-3 w-[40%] md:w-1/5 h-1/4 lg:h-[45%] rounded-lg flex flex-col justify-center items-center cursor-pointer"
