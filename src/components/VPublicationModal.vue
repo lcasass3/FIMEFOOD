@@ -7,7 +7,6 @@ const props = defineProps<{
 }>()
 
 defineEmits<{
-  (e: 'successEvent'): void
   (e: 'closeModal'): void
 }>()
 </script>
@@ -16,8 +15,8 @@ defineEmits<{
   <div
     class="fixed inset-0 flex items-center justify-center transition-opacity"
     :class="{
-      'opacity-100 ease-in duration-300 pointer-events-auto': isOpen,
-      'opacity-0 ease-out duration-200 pointer-events-none': !isOpen
+      'opacity-100 ease-in duration-300 pointer-events-auto': props.isOpen,
+      'opacity-0 ease-out duration-200 pointer-events-none': !props.isOpen
     }"
   >
     <div @click="$emit('closeModal')" name="modal" class="fixed inset-0 bg-black opacity-50"></div>

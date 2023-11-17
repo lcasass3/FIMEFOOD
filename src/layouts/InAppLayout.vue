@@ -1,9 +1,19 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import { HeartIcon, PlusCircleIcon } from '@heroicons/vue/20/solid'
 import { AdjustmentsHorizontalIcon, UserCircleIcon } from '@heroicons/vue/24/outline'
 import { useUserStore } from '@/stores/useUserStore'
+import FiltersModal from './components/FiltersModal.vue'
 
 const user = useUserStore()
+const isOpen = ref(false)
+
+function openModal() {
+  isOpen.value = true
+}
+function closeModal() {
+  isOpen.value = false
+}
 </script>
 
 <template>
@@ -13,7 +23,9 @@ const user = useUserStore()
     <AdjustmentsHorizontalIcon
       class="w-2/3 text-primary mb-2 cursor-pointer"
       v-if="user.roleId === 'customer'"
+      @click="openModal"
     />
+    <FiltersModal :is-open="isOpen" @close-modal="closeModal" />
     <HeartIcon class="w-2/3 text-primary mt-2 cursor-pointer" v-if="user.roleId === 'customer'" />
 
     <PlusCircleIcon
