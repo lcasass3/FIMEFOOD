@@ -17,7 +17,7 @@ function closeModal() {
     <h1 class="text-3xl font-medium mb-4">Cerca de ti</h1>
     <div class="h-[90%] w-full flex flex-wrap overflow-auto">
       <VPublicationListItem class="mb-8 mx-4" @click="openModal" />
-      <VPublicationModal :is-open="isOpen" @close-modal="closeModal" />
+      <VPublicationModal :is-main-modal-open="isOpen" @close-modal="closeModal" />
     </div>
   </main>
 </template>

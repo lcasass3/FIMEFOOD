@@ -1,37 +1,60 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
-import { XCircleIcon } from '@heroicons/vue/20/solid'
+import { XCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/20/solid'
+import VReportSmallModal from './VReportSmallModal.vue'
 
 const props = defineProps<{
-  isOpen: boolean
+  isMainModalOpen: boolean
 }>()
 
 defineEmits<{
   (e: 'closeModal'): void
 }>()
+
+const isSecondaryModalOpen = ref(false)
+function openSecondaryModal() {
+  isSecondaryModalOpen.value = true
+}
+function closeSecondaryModal() {
+  isSecondaryModalOpen.value = false
+}
 </script>
 
 <template>
   <div
     class="fixed inset-0 flex items-center justify-center transition-opacity"
     :class="{
-      'opacity-100 ease-in duration-300 pointer-events-auto': props.isOpen,
-      'opacity-0 ease-out duration-200 pointer-events-none': !props.isOpen
+      'opacity-100 ease-in duration-300 pointer-events-auto': props.isMainModalOpen,
+      'opacity-0 ease-out duration-200 pointer-events-none': !props.isMainModalOpen
     }"
   >
     <div @click="$emit('closeModal')" name="modal" class="fixed inset-0 bg-black opacity-50"></div>
     <div class="modal-content relative bg-white rounded-[30px] shadow-lg w-1/2 max-w-xl h-4/5">
       <header class="relative h-[30%]">
-        <!--Publication img-->
+        <!--Icons over img-->
+        <ExclamationCircleIcon
+          class="text-primary h-8 cursor-pointer absolute z-50 top-2 right-12"
+          @click="openSecondaryModal"
+        />
         <XCircleIcon
           class="text-primary h-8 cursor-pointer absolute z-50 top-2 right-4"
           @click="$emit('closeModal')"
         />
+        <VReportSmallModal
+          :is-secondary-modal-open="isSecondaryModalOpen"
+          first-text="Reportar publicación"
+          @close-secondary-modal="closeSecondaryModal"
+          class="absolute top-8 right-10"
+        />
+
+        <!--Publication img-->
         <img
           src="@/assets/images/gatoFime.jpg"
           alt="Portada"
           class="relative top-0 rounded-t-[30px] w-full h-3/5 object-cover"
         />
+
         <!--Title-->
         <div class="h-2/5 text-2xl font-medium px-8 flex items-end">
           <h1 class="truncate">Gomitas enchiladas Fime</h1>
@@ -39,14 +62,15 @@ defineEmits<{
       </header>
 
       <div class="relative h-3/5 grid grid-cols-2 px-8 py-4 overflow-auto">
-        <!--Body Images-->
         <div class="grid grid-cols-2 grid-rows-2 gap-2 h-full">
+          <!--Body Images-->
           <img src="@/assets/images/gatoFime.jpg" alt="" class="w-full h-full object-cover" />
           <img src="@/assets/images/gatoFime.jpg" alt="" class="w-full h-full object-cover" />
           <img src="@/assets/images/gatoFime.jpg" alt="" class="w-full h-full object-cover" />
           <img src="@/assets/images/gatoFime.jpg" alt="" class="w-full h-full object-cover" />
         </div>
         <div class="h-full overflow-auto ml-8">
+          <!--Body description and contact-->
           <div class="h-[90%] overflow-auto">
             <p class="text-sm">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque veniam eum harum
@@ -65,6 +89,7 @@ defineEmits<{
       </div>
 
       <footer class="relative h-[10%] rounded-b-[30px] px-8 py-3 flex items-start">
+        <!--Footer-->
         <p class="text-xs">Vendido por: Fimeño</p>
       </footer>
     </div>
