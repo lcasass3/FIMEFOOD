@@ -24,17 +24,17 @@ export const routes = [
       name: 'InAppLayout',
       children: [
         {
-          path: '/home',
+          path: 'home',
           name: 'home',
           component: () => import('../pages/Home/HomePage.vue')
         },
         {
-          path: '/favoritos',
+          path: 'favoritos',
           name: 'favorites',
           component: () => import('../pages/Home/costumer/components/FavoritesSellersPage.vue')
         },
         {
-          path: '/perfil-vendedor',
+          path: 'perfil-vendedor',
           name: 'sellerProfile',
           component: () => import('@/pages/Home/components/SellerProfilePage.vue')
         }

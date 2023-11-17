@@ -26,16 +26,16 @@ function closeModal() {
       v-if="user.roleId === 'customer'"
       @click="openModal"
     />
-    <FiltersModal v-if="$route.path === '/home'" :is-open="isOpen" @close-modal="closeModal" />
+    <FiltersModal v-if="$route.path === '/app/home'" :is-open="isOpen" @close-modal="closeModal" />
     <HeartIcon
       class="w-2/3 text-primary my-2 cursor-pointer"
       v-if="user.roleId === 'customer'"
-      @click="router.push({ path: '/favoritos' })"
+      @click="router.push({ path: '/app/favoritos' })"
     />
     <HomeIcon
       class="w-2/3 text-primary mt-2 cursor-pointer"
       v-if="user.roleId === 'customer'"
-      @click="router.push({ path: '/home' })"
+      @click="router.push({ path: '/app/home' })"
     />
 
     <PlusCircleIcon
@@ -49,7 +49,7 @@ function closeModal() {
     <HomeIcon
       class="w-2/3 text-primary mt-2 cursor-pointer"
       v-if="user.roleId === 'seller'"
-      @click="router.push({ path: '/home' })"
+      @click="router.push({ path: '/app/home' })"
     />
   </aside>
 

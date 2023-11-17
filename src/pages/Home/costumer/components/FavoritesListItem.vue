@@ -5,7 +5,7 @@ import router from '@/router'
 <template>
   <div
     class="bg-white border border-black w-[90%] h-1/6 lg:h-1/5 rounded-lg mb-5 cursor-pointer p-2 relative flex flex-wrap items-center"
-    @click="router.push({ path: '/perfil-vendedor' })"
+    @click="router.push({ path: '/app/perfil-vendedor' })"
   >
     <img src="@/assets/images/gatoFime.jpg" alt="Gato" class="w-1/6 h-full object-cover relative" />
     <div class="ml-4">
