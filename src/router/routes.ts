@@ -32,6 +32,11 @@ export const routes = [
           path: '/favoritos',
           name: 'favorites',
           component: () => import('../pages/Home/costumer/components/FavoritesSellersPage.vue')
+        },
+        {
+          path: '/perfil-vendedor',
+          name: 'sellerProfile',
+          component: () => import('@/pages/Home/components/SellerProfilePage.vue')
         }
       ],
       component: () => import('@/layouts/InAppLayout.vue')

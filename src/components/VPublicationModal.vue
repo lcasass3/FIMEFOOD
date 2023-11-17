@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import router from '@/router'
 import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
 import { XCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/20/solid'
 import VReportSmallModal from './VReportSmallModal.vue'
@@ -90,7 +91,12 @@ function closeSecondaryModal() {
 
       <footer class="relative h-[10%] rounded-b-[30px] px-8 py-3 flex items-start">
         <!--Footer-->
-        <p class="text-xs">Vendido por: Fimeño</p>
+        <p class="text-xs">
+          Vendido por:
+          <span class="cursor-pointer" @click="router.push({ path: '/perfil-vendedor' })"
+            >Fimeño</span
+          >
+        </p>
       </footer>
     </div>
   </div>
