@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { HeartIcon, PlusCircleIcon } from '@heroicons/vue/20/solid'
+import router from '@/router'
+import { HeartIcon, PlusCircleIcon, HomeIcon } from '@heroicons/vue/20/solid'
 import { AdjustmentsHorizontalIcon, UserCircleIcon } from '@heroicons/vue/24/outline'
 import { useUserStore } from '@/stores/useUserStore'
 import FiltersModal from './components/FiltersModal.vue'
@@ -25,16 +26,30 @@ function closeModal() {
       v-if="user.roleId === 'customer'"
       @click="openModal"
     />
-    <FiltersModal :is-open="isOpen" @close-modal="closeModal" />
-    <HeartIcon class="w-2/3 text-primary mt-2 cursor-pointer" v-if="user.roleId === 'customer'" />
+    <FiltersModal v-if="$route.path === '/home'" :is-open="isOpen" @close-modal="closeModal" />
+    <HeartIcon
+      class="w-2/3 text-primary my-2 cursor-pointer"
+      v-if="user.roleId === 'customer'"
+      @click="router.push({ path: '/favoritos' })"
+    />
+    <HomeIcon
+      class="w-2/3 text-primary mt-2 cursor-pointer"
+      v-if="user.roleId === 'customer'"
+      @click="router.push({ path: '/home' })"
+    />
 
     <PlusCircleIcon
       class="w-2/3 text-primary mb-2 cursor-pointer"
       v-if="user.roleId === 'seller'"
     />
     <UserCircleIcon
-      class="w-2/3 text-primary mb-2 cursor-pointer"
+      class="w-2/3 text-primary my-2 cursor-pointer"
       v-if="user.roleId === 'seller'"
+    />
+    <HomeIcon
+      class="w-2/3 text-primary mt-2 cursor-pointer"
+      v-if="user.roleId === 'seller'"
+      @click="router.push({ path: '/home' })"
     />
   </aside>
 

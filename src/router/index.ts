@@ -27,11 +27,17 @@ const router = createRouter({
       path: '/app',
       name: 'InAppLayout',
       children: [
-      {
-        path: '/home',
-        name: 'home',
-        component: () => import('../pages/Home/HomePage.vue')
-      }],
+        {
+          path: '/home',
+          name: 'home',
+          component: () => import('../pages/Home/HomePage.vue')
+        },
+        {
+          path: '/favoritos',
+          name: 'favorites',
+          component: () => import('../pages/Home/costumer/components/FavoritesSellersPage.vue')
+        }
+      ],
       component: () => import('@/layouts/InAppLayout.vue')
     },
     
