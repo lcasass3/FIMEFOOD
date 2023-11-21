@@ -3,7 +3,7 @@ import { ref } from 'vue'
 
 export const useUserStore = defineStore('user', () => {
     const userId = ref('2057279')
-    const roleId = ref('customer')
+    const roleId = ref('seller')
     const userContact = ref('https://')
     const userName = ref('Leon Casas')
     const userEmail = ref('leon.csaenz@gmail.com')

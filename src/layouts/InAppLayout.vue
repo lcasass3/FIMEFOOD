@@ -43,7 +43,7 @@ function closeModal() {
       v-if="user.roleId === 'seller'"
     />
     <UserCircleIcon
-      class="w-2/3 text-primary my-2 cursor-pointer"
+      class="w-2/3 text-primary my-2 cursor-pointer stroke-1"
       v-if="user.roleId === 'seller'"
     />
     <HomeIcon
@@ -53,7 +53,7 @@ function closeModal() {
     />
   </aside>
 
-  <main class="w-11/12 lg:w-[94%] h-screen absolute right-0">
+  <main class="w-11/12 lg:w-[94%] h-screen max-h-[100vh] absolute right-0 overflow-auto">
     <RouterView />
   </main>
 </template>

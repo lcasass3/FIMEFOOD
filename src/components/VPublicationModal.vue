@@ -4,9 +4,16 @@ import router from '@/router'
 import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
 import { XCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/20/solid'
 import VReportSmallModal from './VReportSmallModal.vue'
+import { useUserStore } from '@/stores/useUserStore'
+import VButton from './VButton.vue'
+
+const user = useUserStore()
 
 const props = defineProps<{
   isMainModalOpen: boolean
+  title: string
+  description: string
+  contact: string
 }>()
 
 defineEmits<{
@@ -31,10 +38,13 @@ function closeSecondaryModal() {
     }"
   >
     <div @click="$emit('closeModal')" name="modal" class="fixed inset-0 bg-black opacity-50"></div>
-    <div class="modal-content relative bg-white rounded-[30px] shadow-lg w-1/2 max-w-xl h-4/5">
+    <div
+      class="modal-content relative bg-white rounded-[30px] shadow-lg w-1/2 max-w-4xl h-4/5 overflow-auto"
+    >
       <header class="relative h-[30%]">
         <!--Icons over img-->
         <ExclamationCircleIcon
+          v-if="user.roleId === 'customer'"
           class="text-primary h-8 cursor-pointer absolute z-50 top-2 right-12"
           @click="openSecondaryModal"
         />
@@ -58,7 +68,7 @@ function closeSecondaryModal() {
 
         <!--Title-->
         <div class="h-2/5 text-2xl font-medium px-8 flex items-end">
-          <h1 class="truncate">Gomitas enchiladas Fime</h1>
+          <h1 class="truncate">{{ props.title }}</h1>
         </div>
       </header>
 
@@ -74,29 +84,28 @@ function closeSecondaryModal() {
           <!--Body description and contact-->
           <div class="h-[90%] overflow-auto">
             <p class="text-sm">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque veniam eum harum
-              maiores, est voluptates sequi soluta nisi. Sapiente animi pariatur est culpa sint
-              beatae voluptates ut magni unde minus! Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit. Voluptas optio odio voluptatibus saepe iure deserunt culpa,
-              voluptatem modi ab? Quia maiores saepe quidem reiciendis nulla molestiae vitae impedit
-              voluptatem necessitatibus.
+              {{ props.description }}
             </p>
           </div>
           <div class="h-[10%] flex items-center">
             <FacebookIcon class="h-4/5 w-fit mr-3" />
-            <p class="text-xs">Contactooo</p>
+            <p class="text-xs">{{ props.contact }}</p>
           </div>
         </div>
       </div>
 
-      <footer class="relative h-[10%] rounded-b-[30px] px-8 py-3 flex items-start">
+      <footer class="relative h-[10%] rounded-b-[30px] px-8 flex items-start">
         <!--Footer-->
-        <p class="text-xs">
+        <p v-if="user.roleId === 'customer'" class="text-xs">
           Vendido por:
           <span class="cursor-pointer" @click="router.push({ path: '/perfil-vendedor' })"
             >Fimeño</span
           >
         </p>
+
+        <VButton v-if="user.roleId === 'seller'" type="redBtn" class="relative"
+          >Desactivar Publicación</VButton
+        >
       </footer>
     </div>
   </div>
