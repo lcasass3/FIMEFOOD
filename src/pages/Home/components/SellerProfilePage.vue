@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import VPublicationListItem from '@/components/VPublicationListItem.vue'
+import { EllipsisHorizontalCircleIcon } from '@heroicons/vue/20/solid'
 import { useUserStore } from '@/stores/useUserStore'
+import VReportSmallModal from '@/components/VReportSmallModal.vue'
 
 const doomiePublis = ref([
   {
@@ -67,10 +69,30 @@ const doomiePublis = ref([
 ])
 
 const user = useUserStore()
+
+const isReportModalOpen = ref(false)
+function openReportModal() {
+  isReportModalOpen.value = true
+}
+function closeReportModal() {
+  isReportModalOpen.value = false
+}
 </script>
 
 <template>
   <header class="h-1/4 w-full">
+    <EllipsisHorizontalCircleIcon
+      class="h-8 absolute top-2 right-4 text-primary cursor-pointer"
+      @click="openReportModal"
+    />
+    <VReportSmallModal
+      :is-report-modal-open="isReportModalOpen"
+      first-text="Reportar vendedor"
+      second-text="Agregar a favoritos"
+      @close-report-modal="closeReportModal"
+      class="absolute top-8"
+    />
+
     <img src="@/assets/images/gatoFime.jpg" alt="Gato" class="h-full w-full object-cover" />
   </header>
   <div class="h-3/4 py-8 px-16">

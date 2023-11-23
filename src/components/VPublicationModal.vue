@@ -53,9 +53,9 @@ function closeSecondaryModal() {
           @click="$emit('closeModal')"
         />
         <VReportSmallModal
-          :is-secondary-modal-open="isSecondaryModalOpen"
+          :is-report-modal-open="isSecondaryModalOpen"
           first-text="Reportar publicación"
-          @close-secondary-modal="closeSecondaryModal"
+          @close-report-modal="closeSecondaryModal"
           class="absolute top-8 right-10"
         />
 
