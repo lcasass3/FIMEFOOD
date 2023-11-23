@@ -9,6 +9,7 @@ const props = defineProps<{
 
 defineEmits<{
   (e: 'closeReportModal'): void
+  (e: 'openReportDetail'): void
 }>()
 </script>
 
@@ -22,7 +23,11 @@ defineEmits<{
   >
     <div @click="$emit('closeReportModal')" name="modal" class="fixed inset-0"></div>
     <div class="absolute bg-white rounded-lg shadow-full h-fit w-fit text-sm p-2 top-0 right-5">
-      <div v-if="props.firstText" class="flex items-center cursor-pointer">
+      <div
+        v-if="props.firstText"
+        @click="$emit('openReportDetail'), $emit('closeReportModal')"
+        class="flex items-center cursor-pointer"
+      >
         <ExclamationTriangleIcon class="w-4 mr-2 text-red-700" />
         <p>
           <small>{{ props.firstText }}</small>

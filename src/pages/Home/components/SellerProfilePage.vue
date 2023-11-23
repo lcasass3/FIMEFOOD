@@ -4,6 +4,7 @@ import VPublicationListItem from '@/components/VPublicationListItem.vue'
 import { EllipsisHorizontalCircleIcon } from '@heroicons/vue/20/solid'
 import { useUserStore } from '@/stores/useUserStore'
 import VReportSmallModal from '@/components/VReportSmallModal.vue'
+import ReportSellerModal from './ReportSellerModal.vue'
 
 const doomiePublis = ref([
   {
@@ -70,12 +71,20 @@ const doomiePublis = ref([
 
 const user = useUserStore()
 
-const isReportModalOpen = ref(false)
-function openReportModal() {
-  isReportModalOpen.value = true
+const isOptionsModalOpen = ref(false)
+function openOptionsModal() {
+  isOptionsModalOpen.value = true
 }
-function closeReportModal() {
-  isReportModalOpen.value = false
+function closeOptionsModal() {
+  isOptionsModalOpen.value = false
+}
+
+const isReportReasonModalOpen = ref(false)
+function openReportReasonModal() {
+  isReportReasonModalOpen.value = true
+}
+function closeReportReasonModal() {
+  isReportReasonModalOpen.value = false
 }
 </script>
 
@@ -84,14 +93,19 @@ function closeReportModal() {
     <EllipsisHorizontalCircleIcon
       v-if="user.roleId === 'customer'"
       class="h-8 absolute top-2 right-4 text-primary cursor-pointer"
-      @click="openReportModal"
+      @click="openOptionsModal"
     />
     <VReportSmallModal
-      :is-report-modal-open="isReportModalOpen"
+      :is-report-modal-open="isOptionsModalOpen"
       first-text="Reportar vendedor"
       second-text="Agregar a favoritos"
-      @close-report-modal="closeReportModal"
+      @close-report-modal="closeOptionsModal"
+      @open-report-detail="openReportReasonModal"
       class="absolute top-8"
+    />
+    <ReportSellerModal
+      :is-report-reason-modal-open="isReportReasonModalOpen"
+      @close-modal="closeReportReasonModal"
     />
 
     <img src="@/assets/images/gatoFime.jpg" alt="Gato" class="h-full w-full object-cover" />
