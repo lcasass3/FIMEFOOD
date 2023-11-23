@@ -82,6 +82,7 @@ function closeReportModal() {
 <template>
   <header class="h-1/4 w-full">
     <EllipsisHorizontalCircleIcon
+      v-if="user.roleId === 'customer'"
       class="h-8 absolute top-2 right-4 text-primary cursor-pointer"
       @click="openReportModal"
     />
