@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/outline'
 import VPublicationListItem from '@/components/VPublicationListItem.vue'
-import { EllipsisHorizontalCircleIcon } from '@heroicons/vue/20/solid'
-import { useUserStore } from '@/stores/useUserStore'
-import VReportSmallModal from '@/components/VReportSmallModal.vue'
-import ReportSellerModal from './ReportSellerModal.vue'
 
 const doomiePublis = ref([
   {
@@ -69,65 +66,51 @@ const doomiePublis = ref([
   }
 ])
 
-const user = useUserStore()
+const publicationsPerPage = 4
+const currentPage = ref(1)
 
-const isOptionsModalOpen = ref(false)
-function openOptionsModal() {
-  isOptionsModalOpen.value = true
-}
-function closeOptionsModal() {
-  isOptionsModalOpen.value = false
+const totalPages = computed(() => Math.ceil(doomiePublis.value.length / publicationsPerPage))
+
+const paginatedPublications = computed(() => {
+  const startIndex = (currentPage.value - 1) * publicationsPerPage
+  const endIndex = startIndex + publicationsPerPage
+  return doomiePublis.value.slice(startIndex, endIndex)
+})
+
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++
+  } else if (currentPage.value === totalPages.value) {
+    currentPage.value = 1
+  }
 }
 
-const isReportReasonModalOpen = ref(false)
-function openReportReasonModal() {
-  isReportReasonModalOpen.value = true
-}
-function closeReportReasonModal() {
-  isReportReasonModalOpen.value = false
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--
+  } else if (currentPage.value === 1) {
+    currentPage.value = totalPages.value
+  }
 }
 </script>
-
 <template>
-  <header class="h-1/4 w-full">
-    <EllipsisHorizontalCircleIcon
-      v-if="user.roleId === 'customer'"
-      class="h-8 absolute top-2 right-4 text-primary cursor-pointer"
-      @click="openOptionsModal"
+  <div class="h-[45%] w-full flex publications-center justify-center flex-wrap overflow-y-auto">
+    <ChevronLeftIcon
+      @click="prevPage"
+      class="w-10 stroke-primary stroke-2 cursor-pointer"
+      :disabled="currentPage === 1"
     />
-    <VReportSmallModal
-      :is-report-modal-open="isOptionsModalOpen"
-      first-text="Reportar vendedor"
-      second-text="Agregar a favoritos"
-      @close-report-modal="closeOptionsModal"
-      @open-report-detail="openReportReasonModal"
-      class="absolute top-8"
+    <VPublicationListItem
+      v-for="(publi, key) in paginatedPublications"
+      :key="key"
+      :title="publi.title"
+      :description="publi.description"
+      :contact="publi.contact"
     />
-    <ReportSellerModal
-      :is-report-reason-modal-open="isReportReasonModalOpen"
-      @close-modal="closeReportReasonModal"
+    <ChevronRightIcon
+      @click="nextPage"
+      class="w-10 stroke-primary stroke-2 cursor-pointer"
+      :disabled="currentPage === totalPages"
     />
-
-    <img src="@/assets/images/gatoFime.jpg" alt="Gato" class="h-full w-full object-cover" />
-  </header>
-  <div class="h-3/4 py-8 px-16">
-    <h1 class="text-3xl font-medium">Fimeño Vendedor</h1>
-    <p class="text-sm mt-4">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ratione ipsam id
-      mollitia ullam, nam dolores laudantium doloribus, ab fuga nemo dignissimos fugiat excepturi
-      dolore, architecto perferendis ex reiciendis omnis! Lorem ipsum dolor, sit amet consectetur
-      adipisicing elit. Quasi consequuntur quaerat nisi esse dicta magnam fuga reiciendis adipisci
-      ea provident soluta ut, laudantium at praesentium maxime veniam mollitia cumque? Esse.
-    </p>
-    <h1 v-if="user.roleId === 'seller'" class="mt-8 text-xl font-medium">Tus publicaciones</h1>
-    <div class="w-full flex flex-wrap mt-3">
-      <VPublicationListItem
-        v-for="(publi, key) in doomiePublis"
-        :key="key"
-        :title="publi.title"
-        :description="publi.description"
-        :contact="publi.contact"
-      />
-    </div>
   </div>
 </template>
